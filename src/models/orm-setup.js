@@ -1,9 +1,18 @@
-const { sequelizeCon } = require("../config/db-config");
-const { Post } = require("./Post");
+const { sequelize } = require("../config/db-config");
+const { Time } = require("./Time");
 const { User } = require("./User");
+const { Empresa } = require("./Empresa");
+const { UserTime } = require("./UserTime");
+const { UserEmpresa } = require("./UserEmpresa");
 
-Post.belongsTo(User);
-User.hasMany(Post);
+User.belongsToMany(Time, { through: 'UserTime', foreignKey: 'user_timefk' });
+Time.belongsToMany(Empresa, { through: 'EmpresaTime', foreignKey: 'empresatimefk' });
+User.belongsToMany(Empresa, { through: 'UserEmpresa', foreignKey: 'user_empresafk' });
 
-sequelizeCon.sync();
+Empresa.init(sequelize);
+User.init(sequelize);
+Time.init(sequelize);
+UserTime.init(sequelize);
+UserEmpresa.init(sequelize);
 
+sequelize.sync();

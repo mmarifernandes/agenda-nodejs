@@ -2,25 +2,23 @@ const { DataTypes, Model } = require('sequelize');
 
 const { sequelize } = require('../config/db-config');
 
-class User extends Model {}
+class Empresa extends Model {}
     
-User.init({
+Empresa.init({
     nome: DataTypes.STRING,
-    email: {
-        type: DataTypes.STRING,
+    id: {
+        type: DataTypes.INTEGER,
         primaryKey: true,
+        autoIncrement: true
     },
-    senha: DataTypes.STRING,
-    perfilpic: DataTypes.STRING,
-
 }, { 
     sequelize: sequelize, 
     schema: 'public',
-    modelName: 'user'
+    modelName: 'empresa'
 });
-User.removeAttribute('id');
+// Empresa.removeAttribute('id');
 (async () => {
     await sequelize.sync();
 })();
 
-module.exports = { User };
+module.exports = { Empresa };

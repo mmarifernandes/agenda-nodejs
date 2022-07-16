@@ -1,6 +1,9 @@
-const bcrypt = require('bcrypt');
-const { Post } = require('../models/Post');
+// const bcrypt = require('bcrypt');
+const { Time } = require('../models/Time');
 const { User } = require('../models/User');
+const { Empresa } = require('../models/Empresa');
+const { UserTime } = require('../models/UserTime');
+const { UserEmpresa } = require('../models/UserEmpresa');
 
 
 class UsersController {
@@ -10,9 +13,9 @@ class UsersController {
             where: {
                 id: req.session.user.id
             },
-            include: [Post]
+            include: [Time]
         })
-
+        
         return res.send(`<pre>${JSON.stringify(user, null, 2)}</pre>`); 
     }
 
@@ -28,15 +31,26 @@ class UsersController {
             email: userBody.email,
             senha      
         }
-
+        
         await User.create(user);
-    
+        
         res.redirect('/users/listagem');
     }
+    
+    async showlogin(req, res){
+        console.log('dsasdad')
+        res.render('login');
+    }
 
+    async showcadastrar(req, res) {
+        console.log('dsasdad')
+        res.render('cadastro');
+    }
+    
     async login(req, res) {
+        console.log("adasdasd");
         console.log('UsersController/login', req.body);
-
+        
         // ACHAR COM O EMAIL CERTO
         const { email, senha } = req.body;
         const usuarioEcontrado = await User.findOne({

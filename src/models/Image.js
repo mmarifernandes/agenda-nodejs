@@ -1,5 +1,5 @@
 const { Sequelize, DataTypes, Model } = require('sequelize');
-const sequelize = new Sequelize('postgres://suyanloriewldo:df2cba65014f84a238dcca8cf78df3f7006319fc4eddef7a0b76997c8be67350@ec2-3-217-251-77.compute-1.amazonaws.com:5432/d19id9d1a5kfad', {
+const sequelize = new Sequelize('postgres://leoawtfaepdlav:3f263c095b88bc1024a5b1f93d6bfb6a74e0571c718a5fcb3d468412b85dd505@ec2-54-161-255-125.compute-1.amazonaws.com:5432/d3s2cv6fdu7361', {
     dialectOptions: {
         ssl: {
             require: true,
@@ -16,7 +16,7 @@ Image.init({
     url: DataTypes.STRING
 }, { 
     sequelize, 
-    schema: 'SEU SCHEMA',
+    schema: 'users',
     modelName: 'image'
 });
 

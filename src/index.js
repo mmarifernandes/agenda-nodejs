@@ -24,7 +24,7 @@ app.use(session({
 app.use(express.static('public'));
 
 const callendarRoutes = require('./routes/callendar-routes');
-app.use('/home', callendarRoutes);
+// app.use('/home', callendarRoutes);
 
 app.use('*', (req, res, next) => {
     console.log(`Request recebido para ${req.baseUrl} as ${new Date()}`);
@@ -32,27 +32,30 @@ app.use('*', (req, res, next) => {
 })
 
 app.get('/', (req, res) => {
-    res.redirect('/home');
+    res.redirect('/login');
 });
+
 
 // const filmesRoutes = require('./routes/filmes-routes');
 // app.use('/filmes', filmesRoutes);
 
-// const usersRoutes = require('./routes/users-routes');
-// app.use('/users', usersRoutes);
+const usersRoutes = require('./routes/user-routes');
+app.use('/', usersRoutes);
 
-// app.use('*', (req, res) => {
-//     return res.status(404).send(`
-//         <h1>Sorry, not found!!!</h1>
-//         <a href="/filmes">VOLTAR</a>
-//     `);
-// })
+app.use('*', (req, res) => {
+    return res.status(404).send(`
+        <h1>Sorry, not found!!!</h1>
+        <a href="/filmes">VOLTAR</a>
+    `);
+})
 
-// const dbcon = require('./config/connection-db');
-// console.log(dbcon);
+const dbcon = require('./config/db-config');
+console.log(dbcon);
 
 const PORT = process.env.PORT;
-console.log({
-    PORT
-});
+// console.log({
+//     PORT
+// });
 app.listen(PORT, () => console.log(`Server iniciado na porta ${PORT}`));
+
+ 
