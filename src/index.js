@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const multer = require('multer');
 const { User } = require('./models/User');
+const bcrypt = require('bcrypt');
 
 
 const upload = multer({ dest: 'public/images' });
@@ -25,7 +26,6 @@ app.use(session({
     }
 }))
 
-
 app.use(express.static('public'));
 
 const callendarRoutes = require('./routes/callendar-routes');
@@ -42,20 +42,28 @@ app.get('/', (req, res) => {
 
 
 app.post('/cadastrar', upload.single('perfilpic'), async (req, res) => {
-    console.log('CHEGUEI NA POSTAGEM');
-    console.log({
-        body: req.body,
-        file: req.file.filename
-    });
+    // console.log('CHEGUEI NA POSTAGEM');
+    // console.log({
+    //     body: req.body,
+    //     file: req.file.filename
+    // });
     // imagem?
+    const senha = bcrypt.hashSync(req.body.senha, 10);
+    const pessoa = {
+          nome: req.body.nome,
+              email: req.body.email,
+              senha,
+              perfilpic: 'images/' + req.file.filename
+    }
     await User.create({
         nome: req.body.nome,
         email: req.body.email,
-        senha: req.body.senha,
+        senha,
         perfilpic: 'images/' + req.file.filename
     })
-
-    res.redirect('/login');
+    req.session.user = pessoa
+    console.log(req.session.user)
+    res.redirect('/empresas');
 });
 
 // const filmesRoutes = require('./routes/filmes-routes');

@@ -45,14 +45,24 @@ class UsersController {
         res.render('login');
     }
 
+        async home(req, res) {
+            console.log('sdasdads')
+            console.log(req.session.user)
+            res.render('home', { user: req.session.user});
+        }
+
     async showcadastrar(req, res) {
         console.log('dsasdad')
         res.render('cadastro');
     }
+        async empresas(req, res) {
+        console.log('dsasdad')
+        res.render('empresas', { user: req.session.user});
+    }
+    
     
     async login(req, res) {
-        console.log("adasdasd");
-        console.log('UsersController/login', req.body);
+        // console.log('UsersController/login', req.body);
         
         // ACHAR COM O EMAIL CERTO
         const { email, senha } = req.body;
@@ -63,13 +73,14 @@ class UsersController {
         });
 
         if (!usuarioEcontrado) return res.send('User nao encontrado');
-
+        
         // VERIFICAR A SENHA
         const confere = bcrypt.compareSync(senha, usuarioEcontrado.senha);
         
         if (confere) {
             req.session.user = usuarioEcontrado;
-            return res.send('Usuario e senha confirmados, vc fez o login');
+            // console.log(req.session.user);
+            return res.redirect('/home');
         } else {
             return res.send('Senha nao confere...');
         }

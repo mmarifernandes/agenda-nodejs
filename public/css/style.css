@@ -9,17 +9,26 @@
 html {
     font-size: 62.5%;
 }
+header{
+background-color: #171527;
+height: 50px;
+color: #eee;
+}
+header h1{
+float: left;
+}
+
 body{
-        background-color: #12121f;
+        background-color: #020017;
 
 }
 .left{
         box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.4);
-    background-color: #777;
+    background-color: #282734;
     float: left;
     width: 45%;
         height: 100vh;
-        position: fixed;
+        position: absolute;
 
 }
 .container {
@@ -123,3 +132,70 @@ body{
 .today {
     background-color: #167e56;
 }
+header .myheader h3{
+    /* display: inline-block; */
+    float: right;
+}
+header .myheader .perfil{
+    width: 50px;
+    height: 40px;
+    /* display: inline-block; */
+    border-radius: 50px;
+    float: right;
+}
+
+.component{
+    background-color: #5F0033;
+    width: 30%;
+    height: 200px;
+    position: relative;
+    margin:auto;
+ left: 0;
+ right: 0;
+ bottom: 0;
+ top: 86px;
+    border-radius: 20px;
+
+}
+.component h1{
+        padding-top: 10%;
+                padding-left: 10%;
+            padding-bottom: 5%;
+
+        padding-right: 15%;
+    color: #eee;
+}
+.component input{
+
+    height: 50px;
+    width: 80%;
+            margin-left: 10%;
+            /* color: #eee; */
+            border-radius: 18px;
+            border-style: none;
+            background-color: #6D4F5F;
+            font-size: 20px;
+            color: #eee;
+            padding: 10px;
+}
+
+.componentplus {
+    background-color: #5F0033;
+    width: 30%;
+    height: 5%;
+    position: absolute;
+    margin: auto;
+ left: 0;
+ right: 0;
+ bottom: 0;
+ top: 0;
+    border-radius: 20px;
+    text-align: center;
+    color: #eee;
+            padding: 5px;
+
+}
+
+/* .body{
+    display: inline-block;
+} */

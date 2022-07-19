@@ -17,8 +17,10 @@ routes.get('/cadastrar', usersController.showcadastrar);
 
 // routes.post('/cadastrar', usersController.cadastrar);
 
-// routes.post('/login', usersController.login);
+routes.post('/login', usersController.login);
 
 routes.get('/login', usersController.showlogin);
+routes.get('/home', usersController.home);
+routes.get('/empresas', usersController.empresas);
 
 module.exports = routes;
