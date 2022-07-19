@@ -1,9 +1,10 @@
-// const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt');
 const { Time } = require('../models/Time');
 const { User } = require('../models/User');
 const { Empresa } = require('../models/Empresa');
 const { UserTime } = require('../models/UserTime');
 const { UserEmpresa } = require('../models/UserEmpresa');
+const { Agenda } = require('../models/Agenda');
 
 
 class UsersController {
@@ -20,22 +21,24 @@ class UsersController {
     }
 
 
-    async cadastrar(req, res) {
-        console.log('UsersController/cadastrar', req.body);
+    // async cadastrar(req, res) {
+    //     console.log('teste');
 
-        const userBody = req.body;
-        const senha = bcrypt.hashSync(userBody.senha, 10); 
+    //     const userBody = req.body;
+    //     const senha = bcrypt.hashSync(userBody.senha, 10); 
         
-        const user = {
-            nome: userBody.nome,
-            email: userBody.email,
-            senha      
-        }
+    //     const user = {
+    //         nome: userBody.nome,
+    //         email: userBody.email,
+    //         senha,
+    //         perfilpic: '/images'+req.file.filename
+
+    //     }
         
-        await User.create(user);
+    //     await User.create(user);
         
-        res.redirect('/users/listagem');
-    }
+    //     res.redirect('/users/listagem');
+    // }
     
     async showlogin(req, res){
         console.log('dsasdad')

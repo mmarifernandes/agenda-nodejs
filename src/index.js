@@ -1,5 +1,10 @@
 const express = require('express');
 const app = express();
+const multer = require('multer');
+const { User } = require('./models/User');
+
+
+const upload = multer({ dest: 'public/images' });
 
 app.set('view engine', 'ejs');
 app.set('views', './src/views');
@@ -35,6 +40,23 @@ app.get('/', (req, res) => {
     res.redirect('/login');
 });
 
+
+app.post('/cadastrar', upload.single('perfilpic'), async (req, res) => {
+    console.log('CHEGUEI NA POSTAGEM');
+    console.log({
+        body: req.body,
+        file: req.file.filename
+    });
+    // imagem?
+    await User.create({
+        nome: req.body.nome,
+        email: req.body.email,
+        senha: req.body.senha,
+        perfilpic: 'images/' + req.file.filename
+    })
+
+    res.redirect('/login');
+});
 
 // const filmesRoutes = require('./routes/filmes-routes');
 // app.use('/filmes', filmesRoutes);

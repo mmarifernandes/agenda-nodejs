@@ -4,6 +4,7 @@ const { User } = require("./User");
 const { Empresa } = require("./Empresa");
 const { UserTime } = require("./UserTime");
 const { UserEmpresa } = require("./UserEmpresa");
+const { Agenda } = require("./Agenda");
 
 User.belongsToMany(Time, { through: 'UserTime', foreignKey: 'user_timefk' });
 Time.belongsToMany(Empresa, { through: 'EmpresaTime', foreignKey: 'empresatimefk' });
@@ -14,5 +15,6 @@ User.init(sequelize);
 Time.init(sequelize);
 UserTime.init(sequelize);
 UserEmpresa.init(sequelize);
+Agenda.init(sequelize);
 
 sequelize.sync();

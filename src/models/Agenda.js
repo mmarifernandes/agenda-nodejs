@@ -1,4 +1,5 @@
 const { DataTypes, Model } = require('sequelize');
+const { User } = require("./User");
 
 const { sequelize } = require('../config/db-config');
 
@@ -13,13 +14,19 @@ Agenda.init({
     },
     desc: DataTypes.STRING,
     data: DataTypes.DATE,
-
+    adm:{
+        type: DataTypes.STRING,
+        references: {
+                model: User,
+                key: 'email'
+            },
+    }
 }, { 
     sequelize: sequelize, 
     schema: 'public',
-    modelName: 'user'
+    modelName: 'agenda'
 });
-Agenda.removeAttribute('id');
+// Agenda.removeAttribute('id');
 (async () => {
     await sequelize.sync();
 })();

@@ -15,7 +15,7 @@ routes.get('/listagem', async (req, res) => {
 });
 routes.get('/cadastrar', usersController.showcadastrar);
 
-routes.post('/cadastrar', usersController.cadastrar);
+// routes.post('/cadastrar', usersController.cadastrar);
 
 // routes.post('/login', usersController.login);
 

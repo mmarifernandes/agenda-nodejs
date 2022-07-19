@@ -2,12 +2,18 @@
 <html lang="en">
 
 <%- include('includes/head') %>
-
+<style>
+    label{
+        color: aliceblue;
+    }
+</style>
     <body>
         <center>
             <h1 style="margin-bottom: 20px;">Cadastro</h1>
 
-            <form action="/users/cadastrar" method="post">
+            <form action="/cadastrar" method="post" enctype="multipart/form-data">
+                <label for="perfilpic">Foto de perfil</label>
+                <input type="file" name="perfilpic">
                 <label for="nome">Nome</label>
                 <br>
                 <input type="text" name="nome" required>
