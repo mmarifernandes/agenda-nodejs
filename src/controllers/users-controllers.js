@@ -57,7 +57,9 @@ class UsersController {
     }
         async empresas(req, res) {
         console.log('dsasdad')
-        res.render('empresas', { user: req.session.user});
+        const empresas = await Empresa.findAll()
+            console.log(empresas)
+        res.render('empresas', { user: req.session.user, empresas: empresas});
     }
     
     

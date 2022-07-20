@@ -10,7 +10,7 @@ html {
     font-size: 62.5%;
 }
 header{
-background-color: #171527;
+background-color: #1c1a2b;
 height: 50px;
 color: #eee;
 }
@@ -146,7 +146,7 @@ header .myheader .perfil{
 
 .component{
     background-color: #5F0033;
-    width: 30%;
+    width: 28%;
     height: 200px;
     position: relative;
     margin:auto;
@@ -158,9 +158,9 @@ header .myheader .perfil{
 
 }
 .component h1{
-        padding-top: 10%;
-                padding-left: 10%;
-            padding-bottom: 5%;
+        padding-top: 7%;
+                padding-left: 7%;
+            padding-bottom: 8%;
 
         padding-right: 15%;
     color: #eee;
@@ -168,8 +168,8 @@ header .myheader .perfil{
 .component input{
 
     height: 50px;
-    width: 80%;
-            margin-left: 10%;
+    width: 83%;
+            margin-left: 8%;
             /* color: #eee; */
             border-radius: 18px;
             border-style: none;
@@ -181,21 +181,52 @@ header .myheader .perfil{
 
 .componentplus {
     background-color: #5F0033;
-    width: 30%;
+    width: 28%;
     height: 5%;
     position: absolute;
     margin: auto;
  left: 0;
  right: 0;
  bottom: 0;
- top: 0;
-    border-radius: 20px;
+ top: 84px;
+    border-radius: 15px;
     text-align: center;
     color: #eee;
             padding: 5px;
+            cursor: pointer;
+            font-size: 12px;
 
 }
 
+.componentplus :hover{
+background-color: #6D4F5F;
+    border-radius: 20px;
+
+}
+.componentplus2 {
+    background-color: #5F0033;
+    width: 28%;
+    height: 5%;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    border-radius: 15px;
+    text-align: center;
+    color: #eee;
+    padding: 5px;
+    cursor: pointer;
+    font-size: 12px;
+
+}
+
+.componentplus2 :hover {
+    background-color: #6D4F5F;
+    border-radius: 20px;
+
+}
 /* .body{
     display: inline-block;
 } */
