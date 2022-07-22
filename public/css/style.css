@@ -51,7 +51,7 @@ body{
 .month {
     width: 100%;
     height: 12rem;
-    background-color: #5c11b3;
+    background-color: #520BAC;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -145,7 +145,7 @@ header .myheader .perfil{
 }
 
 .component{
-    background-color: #5F0033;
+    background-color: #520BAC;
     width: 28%;
     height: 200px;
     position: relative;
@@ -157,13 +157,13 @@ header .myheader .perfil{
     border-radius: 20px;
 
 }
-.component h1{
+.h1{
         padding-top: 7%;
-                padding-left: 7%;
+                padding-left: 10%;
             padding-bottom: 8%;
-
-        padding-right: 15%;
+float: left;
     color: #eee;
+    width: 71%;
 }
 .component input{
 
@@ -173,14 +173,14 @@ header .myheader .perfil{
             /* color: #eee; */
             border-radius: 18px;
             border-style: none;
-            background-color: #6D4F5F;
+            background-color: #7C2FDF;
             font-size: 20px;
             color: #eee;
             padding: 10px;
 }
 
 .componentplus {
-    background-color: #5F0033;
+    background-color: #520BAC;
     width: 28%;
     height: 5%;
     position: absolute;
@@ -199,12 +199,12 @@ header .myheader .perfil{
 }
 
 .componentplus :hover{
-background-color: #6D4F5F;
+background-color: #7C2FDF;
     border-radius: 20px;
 
 }
 .componentplus2 {
-    background-color: #5F0033;
+    background-color: #520BAC;
     width: 28%;
     height: 5%;
     position: absolute;
@@ -223,10 +223,14 @@ background-color: #6D4F5F;
 }
 
 .componentplus2 :hover {
-    background-color: #6D4F5F;
+    background-color: #8F3DF6;
     border-radius: 20px;
 
 }
-/* .body{
-    display: inline-block;
-} */
+.icon{
+    float: right;
+    font-size: 3.5vw;
+            padding-top: 7%;
+            padding-right: 10%;
+            color: #7C2FDF;
+}

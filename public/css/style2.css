@@ -1,0 +1,86 @@
+.component1 {
+    background-color: #520BAC;
+    width: 35%;
+    height: 150px;
+    position: relative;
+    margin: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 86px;
+    border-radius: 20px;
+
+}
+
+.h1 {
+    padding-top: 7%;
+    padding-left: 10%;
+    padding-bottom: 8%;
+    float: left;
+    color: #eee;
+    width: 71%;
+}
+
+.component1 input {
+
+    height: 50px;
+    width: 83%;
+    margin-left: 8%;
+    /* color: #eee; */
+    border-radius: 18px;
+    border-style: none;
+    background-color: #7C2FDF;
+    font-size: 20px;
+    color: #eee;
+    padding: 10px;
+}
+
+.componentplus {
+    background-color: #520BAC;
+    width: 28%;
+    height: 5%;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 84px;
+    border-radius: 15px;
+    text-align: center;
+    color: #eee;
+    padding: 5px;
+    cursor: pointer;
+    font-size: 12px;
+
+}
+
+.componentplus :hover {
+    background-color: #7C2FDF;
+    border-radius: 20px;
+
+}
+
+.componentplus2 {
+    background-color: #520BAC;
+    width: 28%;
+    height: 5%;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    border-radius: 15px;
+    text-align: center;
+    color: #eee;
+    padding: 5px;
+    cursor: pointer;
+    font-size: 12px;
+
+}
+
+.componentplus2 :hover {
+    background-color: #8F3DF6;
+    border-radius: 20px;
+
+}

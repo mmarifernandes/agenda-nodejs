@@ -68,6 +68,8 @@ app.post('/cadastrar', upload.single('perfilpic'), async (req, res) => {
 
 // const filmesRoutes = require('./routes/filmes-routes');
 // app.use('/filmes', filmesRoutes);
+const empresasRoutes = require('./routes/empresa-routes');
+app.use('/empresa', empresasRoutes);
 
 const usersRoutes = require('./routes/user-routes');
 app.use('/', usersRoutes);

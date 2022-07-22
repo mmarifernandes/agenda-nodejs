@@ -41,7 +41,6 @@ class UsersController {
     // }
     
     async showlogin(req, res){
-        console.log('dsasdad')
         res.render('login');
     }
 
@@ -52,17 +51,15 @@ class UsersController {
         }
 
     async showcadastrar(req, res) {
-        console.log('dsasdad')
         res.render('cadastro');
     }
         async empresas(req, res) {
-        console.log('dsasdad')
         const empresas = await Empresa.findAll()
             console.log(empresas)
         res.render('empresas', { user: req.session.user, empresas: empresas});
     }
     
-    
+
     async login(req, res) {
         // console.log('UsersController/login', req.body);
         
