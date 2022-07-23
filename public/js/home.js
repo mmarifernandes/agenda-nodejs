@@ -62,9 +62,9 @@
                         i === new Date().getDate() &&
                         date.getMonth() === new Date().getMonth()
                     ) {
-                        days += `<div class="today">${i}</div>`;
+                        days += `<div onclick="window.location='agenda/${(date.getMonth()+1)+'-'+i+'-'+date.getFullYear()}'" class="today">${i}</div>`;
                     } else {
-                        days += `<div>${i}</div>`;
+                        days += `<div onclick="window.location='agenda/${(date.getMonth()+1)+'-'+i+'-'+date.getFullYear()}'">${i}</div>`;
                     }
                 }
 

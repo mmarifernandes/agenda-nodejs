@@ -16,13 +16,16 @@ UserTime.init({
         primaryKey: true
     },
         timeid: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             references: {
                 model: Time,
                 key: 'id'
             },
             primaryKey: true
         },
+        tipo:{
+            type: DataTypes.STRING
+        }
 }, { 
     sequelize: sequelize, 
     schema: 'public',

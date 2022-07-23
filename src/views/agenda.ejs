@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('includes/head') %>
+<%- include('includes/navbar') %>
+
+
+<body>
+    <div class="left">
+     
+    </div>
+    <div class="container">
+        <form action="/agenda/addevento/<%-param%>" method="post">
+        <label for="nome">Nome do evento</label>
+        <input type="text" name="nome" id="">
+        <label for="hora">Horário</label>
+        <input type="time" name="hora" id="">
+        <label for="desc">Descrição</label>
+        <textarea name="desc" id="" cols="30" rows="10"></textarea>
+        <select name="time" id="">
+                <% times.forEach(time=> { %>
+            <option value="<%-time.id%>"><%-time.nome%></option>
+                <% }) %>
+        </select>
+        <br>
+        <input type="submit" value="Agendar">
+        </form>
+    </div>
+    
+</body>
+<script src="/js/home.js"></script>
+
+</html>

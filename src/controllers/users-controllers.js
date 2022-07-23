@@ -78,8 +78,9 @@ class UsersController {
         
         if (confere) {
             req.session.user = usuarioEcontrado;
-            // console.log(req.session.user);
-            return res.redirect('/home');
+            console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+            console.log(req.session.user);
+            res.redirect('/empresa/homeempresa');
         } else {
             return res.send('Senha nao confere...');
         }

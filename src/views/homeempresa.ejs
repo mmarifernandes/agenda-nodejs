@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('includes/head') %>
+<%- include('includes/navbar') %>
+
+
+<body>
+    <div class="left">
+    <% times.forEach(time=> { %>
+    <h1><%- time.nome %></h1>
+      <% }) %>
+    </div>
+    <div class="container">
+      <a href="/empresa/addtime">Criar time</a>
+    </div>
+
+</body>
+<script src="/js/home.js"></script>
+
+</html>

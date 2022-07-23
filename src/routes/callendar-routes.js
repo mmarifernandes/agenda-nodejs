@@ -7,8 +7,8 @@ const routes = Router();
 
 const callendarController = new CallendarController();
 
-routes.get('/', callendarController.home);
+routes.get('/:num', callendarController.agendarevento);
+routes.post('/addevento/:num', callendarController.addevento);
 
-routes.post('/', isAuth, upload.single('meuarquivo'), callendarController.cadastrar);
 
 module.exports = routes;

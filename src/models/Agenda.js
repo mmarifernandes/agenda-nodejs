@@ -1,5 +1,5 @@
 const { DataTypes, Model } = require('sequelize');
-const { User } = require("./User");
+const { Time } = require("./Time");
 
 const { sequelize } = require('../config/db-config');
 
@@ -14,11 +14,11 @@ Agenda.init({
     },
     desc: DataTypes.STRING,
     data: DataTypes.DATE,
-    adm:{
+    time:{
         type: DataTypes.STRING,
         references: {
-                model: User,
-                key: 'email'
+                model: Time,
+                key: 'id'
             },
     }
 }, { 

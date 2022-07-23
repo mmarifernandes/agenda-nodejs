@@ -7,11 +7,9 @@ class Time extends Model {}
 Time.init({
     nome: DataTypes.STRING,
     desc: DataTypes.STRING,
-    adm: DataTypes.STRING,
     id: {
         primaryKey: true,
-        autoIncrement: true,
-        type: DataTypes.INTEGER
+        type: DataTypes.STRING
     },
 }, { 
     sequelize: sequelize, 

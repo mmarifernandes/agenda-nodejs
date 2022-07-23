@@ -12,6 +12,9 @@ const empresasController = new EmpresasController();
 routes.post('/cadastroempresa', empresasController.cadastrar);
 routes.get('/addempresa', empresasController.addempresa);
 routes.post('/empresauser', empresasController.empresauser);
+routes.get('/homeempresa', empresasController.homeempresa);
+routes.get('/addtime', empresasController.addtime);
+routes.post('/cadastrotime', empresasController.cadastrartime);
 
 
 

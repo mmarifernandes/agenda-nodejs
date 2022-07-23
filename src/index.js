@@ -28,8 +28,7 @@ app.use(session({
 
 app.use(express.static('public'));
 
-const callendarRoutes = require('./routes/callendar-routes');
-// app.use('/home', callendarRoutes);
+
 
 app.use('*', (req, res, next) => {
     console.log(`Request recebido para ${req.baseUrl} as ${new Date()}`);
@@ -70,6 +69,9 @@ app.post('/cadastrar', upload.single('perfilpic'), async (req, res) => {
 // app.use('/filmes', filmesRoutes);
 const empresasRoutes = require('./routes/empresa-routes');
 app.use('/empresa', empresasRoutes);
+
+const callendarRoutes = require('./routes/callendar-routes');
+app.use('/agenda', callendarRoutes);
 
 const usersRoutes = require('./routes/user-routes');
 app.use('/', usersRoutes);

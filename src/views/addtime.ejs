@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('includes/head') %>
+    <%- include('includes/navbar') %>
+    <link rel="stylesheet" href="/css/style3.css" />
+
+<body>
+    <div class="body">
+    <div class="component1">
+        <h1>Criar time</h1>
+        <form action="/empresa/cadastrotime" method="post">
+            <label for="nome">Nome</label>
+            <input type="text" name="nome">
+              <label for="desc">Descrição</label>
+           <textarea name="desc" id="" cols="30" rows="10"></textarea>
+            <button type="submit">Cadastrar</button>
+        </form>
+    </div>
+        <!-- <button class="componentplus2">
+            <h2>Adicionar empresa</h2>
+        </button> -->
+        </div>
+</body>
+</html>
