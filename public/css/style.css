@@ -27,13 +27,13 @@ body{
     background-color: #282734;
     float: left;
     width: 45%;
-        height: 100vh;
+        height: 110%;
         position: absolute;
 
 }
 .container {
     width: 55%;
-    height: 100vh;
+    height: 110%;
     float: right;
     color: #eee;
     display: flex;
@@ -50,9 +50,11 @@ header>h1 {
 }
 
 .calendar-container {
+    margin-top: 5%;
+     margin-bottom: 5%;
     width: 80%;
-
-
+    border: 1px solid #282734;
+    height: 100%;
 }
 
 
@@ -70,10 +72,19 @@ header>h1 {
 }
 
 .day-of-week>span {
-    height: 14vh;
+    height: 5vh;
     text-align: center;
+    margin: 7%;
+    font-size: 15px;
 }
-
+.headcalendar .title{
+    text-align: center;
+    font-size: 25px;
+    padding: 3%
+}
+.headcalendar{
+    background-color: #7C2FDF;
+}
 .days {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
