@@ -6,7 +6,6 @@ const { Empresa } = require('../models/Empresa');
 const { UserTime } = require('../models/UserTime');
 const { UserEmpresa } = require('../models/UserEmpresa');
 const { Agenda } = require('../models/Agenda');
-const { user } = require('pg/lib/defaults');
 
 class CallendarController {
 
@@ -30,6 +29,7 @@ class CallendarController {
 
     async agendarevento(req, res) {  
         const times = await Time.findAll()
+        
     res.render('agenda', {user: req.session.user, times: times, param: req.params.num});
 
     }

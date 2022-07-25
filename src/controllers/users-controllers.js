@@ -5,6 +5,7 @@ const { Empresa } = require('../models/Empresa');
 const { UserTime } = require('../models/UserTime');
 const { UserEmpresa } = require('../models/UserEmpresa');
 const { Agenda } = require('../models/Agenda');
+const calendar = require("../../public/js/home");
 
 
 class UsersController {
@@ -45,9 +46,13 @@ class UsersController {
     }
 
         async home(req, res) {
-            console.log('sdasdads')
-            console.log(req.session.user)
-            res.render('home', { user: req.session.user});
+    const year = req.query.year || new Date().getFullYear()
+        const month = req.query.month|| new Date().getMonth()
+        const agenda = await Agenda.findAll()
+
+    const months = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho",
+    "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+    res.render("home",{calendar: calendar(year),months,year,month, user: req.session.user, evento: agenda});
         }
 
     async showcadastrar(req, res) {

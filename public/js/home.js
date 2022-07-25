@@ -1,93 +1,67 @@
- const date = new Date();
+function calcTable(year) {
+    let arr = new Array(12);
+    for (let x = 0; x < arr.length; x++) {
+        arr[x] = new Array(6);
 
-            const renderCalendar = () => {
-                date.setDate(1);
+    }
 
-                const monthDays = document.querySelector(".days");
+    for (let x = 0; x < arr.length; x++) {
+        for (let y = 0; y < arr[x].length; y++) {
+            arr[x][y] = new Array(7);
+        }
+    }
 
-                const lastDay = new Date(
-                    date.getFullYear(),
-                    date.getMonth() + 1,
-                    0
-                ).getDate();
+    for (let month = 0; month < arr.length; month++) {
 
-                const prevLastDay = new Date(
-                    date.getFullYear(),
-                    date.getMonth(),
-                    0
-                ).getDate();
+        let startDayInWeek = new Date(year, month, 0).getDay() + 1;
+      
 
-                const firstDayIndex = date.getDay();
+        let monthLong = new Date(year, month + 1,0).getDate() + 1;
 
-                const lastDayIndex = new Date(
-                    date.getFullYear(),
-                    date.getMonth() + 1,
-                    0
-                ).getDay();
 
-                const nextDays = 7 - lastDayIndex - 1;
+console.log(monthLong)
 
-                const months = [
-                    "Janeiro",
-                    "Fevereiro",
-                    "Março",
-                    "Abril",
-                    "Maio",
-                    "Junho",
-                    "Julho",
-                    "Agosto",
-                    "Setembro",
-                    "Outubro",
-                    "Novembro",
-                    "Dezembro",
-                ];
 
-                document.querySelector(".date h1").innerHTML = months[date.getMonth()];
-                document.querySelector(".date h2").innerHTML = date.getFullYear();
+        let beforCount = 0;
+        let counter = 1;
+        let startCount = false;
 
-                var date1 = new Date();
-                let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 
-                date1 = date1.toLocaleDateString('pt-BR', options);
-                document.querySelector(".date p").innerHTML = date1;
+        for (let x = 0; x < arr[month].length; x++) {
+            for (let y = 0; y < arr[month][x].length; y++) {
 
-                let days = "";
-                console.log(date.getFullYear());
-                for (let x = firstDayIndex; x > 0; x--) {
-                    days += `<div class="prev-date">${prevLastDay - x + 1}</div>`;
+
+
+                if (beforCount == startDayInWeek) {
+                    startCount = true;
+                } else {
+                    beforCount++;
                 }
 
-                for (let i = 1; i <= lastDay; i++) {
-                    if (
-                        i === new Date().getDate() &&
-                        date.getMonth() === new Date().getMonth()
-                    ) {
-                        days += `<div onclick="window.location='agenda/${(date.getMonth()+1)+'-'+i+'-'+date.getFullYear()}'" class="today">${i}</div>`;
-                    } else {
-                        days += `<div onclick="window.location='agenda/${(date.getMonth()+1)+'-'+i+'-'+date.getFullYear()}'">${i}</div>`;
-                    }
+
+                if (startCount == true) {
+
+                    arr[month][x][y] = counter;
+                    counter++;
+
+                } else {
+                    arr[month][x][y] = "";
                 }
 
-                for (let j = 1; j <= nextDays; j++) {
-                    days += `<div class="next-date">${j}</div>`;
-                    monthDays.innerHTML = days;
+                if (counter > monthLong) {
+                    arr[month][x][y] = "";
+
                 }
-            };
 
-            document.querySelector(".prev").addEventListener("click", () => {
-                date.setMonth(date.getMonth() - 1);
-                 if (date.getMonth() == 0) {
-                     date.setFullYear(date.getFullYear(-1));
-                 }
-                renderCalendar();
-            });
 
-            document.querySelector(".next").addEventListener("click", () => {
-                date.setMonth(date.getMonth() + 1);
-                if(date.getMonth()==11){
-                    date.setFullYear(date.getFullYear( + 1));
-                }
-                renderCalendar();
-            });
 
-            renderCalendar();
+
+            }
+
+        }
+    }
+
+    return arr;
+}
+
+module.exports = calcTable;
