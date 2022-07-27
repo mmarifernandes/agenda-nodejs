@@ -7,12 +7,12 @@ const routes = Router();
 
 const usersController = new UsersController();
 
-routes.get('/profile', isAuth, usersController.detalhar);
+// routes.get('/profile', isAuth, usersController.detalhar);
 
-routes.get('/listagem', async (req, res) => {
-    const lista = await User.findAll();
-    return res.send(JSON.stringify(lista));
-});
+// routes.get('/listagem', async (req, res) => {
+//     const lista = await User.findAll();
+//     return res.send(JSON.stringify(lista));
+// });
 routes.get('/cadastrar', usersController.showcadastrar);
 
 // routes.post('/cadastrar', usersController.cadastrar);

@@ -7,18 +7,13 @@
 <% let datef=[]%>
 <% let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }%>
 <% evento.forEach(event=> { %>
-
 <% date1.push(new Date(event.data.toString()))%>
-
-
-
 <% }) %>
 <% for(let  i = 0; i<date1.length; i++){%>
 
 <%datef.push(date1[i].toLocaleDateString('pt-BR', options))%>
 <%}%>
-    <body>
-                  
+    <body>  
     <div class="left">
         <form action="/home" method="get">
                         <input type="text" placeholder="search year" name="year">
@@ -39,9 +34,9 @@
 
   <div class="calendar-container">
     <div class="month-container" id="<%= months[month] %>">
-        <div class="headcalendar">
-      <h3 class="title"> <%= months[month] %> - <%= year %> </h3>
-    </div>
+      <div class="headcalendar">
+        <h3 class="title"> <%= months[month] %> - <%= year %> </h3>
+      </div>
       <div class="day-of-week">
         <span>Dom</span><span>Seg</span><span>Ter</span><span>
           Qua</span><span>Qui</span><span>Sex</span><span>Sáb</span>
@@ -63,7 +58,7 @@
           <% for(let x = 0; x<datef.length;x++){%>
 
           <%if(datef[x] === date2 ){%>
-         <div class="event"></div>
+          <div class="event"></div>
           <%}%>
             
         <%}%>

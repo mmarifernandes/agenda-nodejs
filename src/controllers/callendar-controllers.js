@@ -1,11 +1,10 @@
 const bcrypt = require('bcrypt');
 const uniqid = require('uniqid');
-const { Time } = require('../models/Time');
-const { User } = require('../models/User');
-const { Empresa } = require('../models/Empresa');
-const { UserTime } = require('../models/UserTime');
-const { UserEmpresa } = require('../models/UserEmpresa');
-const { Agenda } = require('../models/Agenda');
+const { Empresa, EmpresaDAO } = require('../models/Empresa');
+const { UserEmpresa, UserEmpresaDAO } = require('../models/UserEmpresa');
+const { UserTime, UserTimeDAO } = require('../models/UserTime');
+const { Agenda, AgendaDAO } = require('../models/Agenda');
+const { dbcon } = require("../config/connection-db");
 
 class CallendarController {
 
@@ -21,16 +20,16 @@ class CallendarController {
             data: req.params.num+" "+req.body.hora
         };
         console.log(agendar);
-        await Agenda.create(agendar);
+        await AgendaDAO.cadastrar(agendar);
 
 
         res.redirect('/home');
     }
 
     async agendarevento(req, res) {  
-        const times = await Time.findAll()
+        const times = await dbcon.query('SELECT * FROM times');
         
-    res.render('agenda', {user: req.session.user, times: times, param: req.params.num});
+    res.render('agenda', {user: req.session.user, times: times.rows, param: req.params.num});
 
     }
 

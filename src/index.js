@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const multer = require('multer');
-const { User } = require('./models/User');
+const { User, UserDAO } = require('./models/User');
 const bcrypt = require('bcrypt');
 
 
@@ -54,7 +54,7 @@ app.post('/cadastrar', upload.single('perfilpic'), async (req, res) => {
               senha,
               perfilpic: 'images/' + req.file.filename
     }
-    await User.create({
+    await UserDAO.cadastrar({
         nome: req.body.nome,
         email: req.body.email,
         senha,
@@ -83,7 +83,7 @@ app.use('*', (req, res) => {
     `);
 })
 
-const dbcon = require('./config/db-config');
+const dbcon = require('./config/connection-db');
 console.log(dbcon);
 
 const PORT = process.env.PORT;
