@@ -6,6 +6,7 @@ const { UserEmpresa, UserEmpresaDAO } = require('../models/UserEmpresa');
 const { UserTime, UserTimeDAO } = require('../models/UserTime');
 const { EmpresaTime, EmpresaTimeDAO } = require('../models/EmpresaTime');
 const { Time, TimeDAO } = require('../models/Time');
+const { user } = require('pg/lib/defaults');
 
 class EmpresasController {
 
@@ -36,15 +37,16 @@ class EmpresasController {
         const timeuser = {
             useremail: user,
             timeid: id,
-            tipo: 'adm'
+            tipo: 'adm',
+            data: new Date()
         }
         const empresa = await UserEmpresaDAO.buscaPeloId(req.session.user.email)
-        console.log(time);
         const empresatime = {
             empresaid: empresa.empresaid,
             timeid: id,
         }
         
+        console.log(empresatime);
         await TimeDAO.cadastrar(time);
         await UserTimeDAO.cadastrar(timeuser);
         await EmpresaTimeDAO.cadastrar(empresatime);
@@ -73,11 +75,13 @@ async addtime(req, res) {
 
 async homeempresa(req, res) {
         // const empresa = await UserEmpresaDAO.buscaPeloId(req.session.user.email)
+        const empresa = await dbcon.query("SELECT * FROM empresas join userempresas on userempresas.empresaid = empresas.id where userempresas.useremail = '" + req.session.user.email + "'");
 
-                            const times = await dbcon.query('SELECT * FROM times');
+                            const timesm = await dbcon.query("SELECT * FROM times join usertimes on usertimes.timeid = times.id where useremail = '" + req.session.user.email + "'");
+                            const times = await dbcon.query("SELECT * FROM times join empresatimes on empresatimes.timeid = times.id where empresaid = '" + empresa.rows[0].id +"'");
 
-                            console.log(times)
-                            res.render('homeempresa', { user: req.session.user, times: times.rows });
+                            console.log(empresa)
+                            res.render('homeempresa', { user: req.session.user, times: times.rows, empresa: empresa.rows[0], timesm: timesm.rows });
             }
             
         }

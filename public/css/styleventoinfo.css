@@ -1,42 +1,49 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&family=Poppins&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Inter', sans-serif;    
+    font-family: 'Inter', sans-serif;
 }
 
 html {
     font-size: 62.5%;
 }
-h1{
+
+h1 {
     color: rgb(218, 218, 218);
 }
-h2{
+
+h2 {
     color: rgb(218, 218, 218);
 }
-header{
-background-color: #1c1a2b;
-height: 50px;
-color: #eee;
-}
-header h1{
-float: left;
+
+header {
+    background-color: #1c1a2b;
+    height: 50px;
+    color: #eee;
 }
 
-body{
-        background-color: #020017;
+header h1 {
+    float: left;
+}
+
+body {
+    background-color: #020017;
 
 }
-.left{
-        box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.4);
+
+.left {
+    box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.4);
     background-color: #282734;
     float: left;
     width: 45%;
-        height: 120%;
-        position: absolute;
+    height: 120%;
+    position: absolute;
 
 }
+
 .container {
     width: 55%;
     height: 110%;
@@ -57,7 +64,7 @@ header>h1 {
 
 .calendar-container {
     margin-top: 5%;
-     margin-bottom: 5%;
+    margin-bottom: 5%;
     width: 80%;
     border: 1px solid #282734;
     height: 100%;
@@ -83,57 +90,70 @@ header>h1 {
     margin: 7%;
     font-size: 15px;
 }
-.headcalendar .title{
+
+.headcalendar .title {
     text-align: center;
     font-size: 25px;
     padding: 3%;
-    padding-bottom: 1% 
+    padding-bottom: 1%
 }
-.headcalendar{
+
+.headcalendar {
     background-color: #7C2FDF;
     text-align: center;
-        padding-bottom: 3%;
+    padding-bottom: 3%;
 
 }
-.headcalendar input{
+
+.headcalendar input {
     width: 15%;
 }
+
 .days {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    
+
     grid-gap: 0.1em;
 }
-a:link, a:visited,  a:hover, a:active
-{
+
+a:link,
+a:visited,
+a:hover,
+a:active {
     color: #fff;
     text-decoration: none;
 }
+
 .date {
     height: 14vh;
     text-align: center;
 
 }
-.event{
+
+.event {
     display: flex;
     flex-direction: row;
-      width: 100%;
-      height: 10%;
-      margin-top: 0.1vh;
+    width: 100%;
+    height: 10%;
+    margin-top: 0.1vh;
 }
+
 .event:nth-child(odd) {
     background-color: #2fdfd0;
- 
+
 }
+
 .event:nth-child(even) {
     background-color: #7C2FDF;
 
 }
-header .myheader h3{
+
+header .myheader h3 {
     /* display: inline-block; */
     float: right;
 }
-header .myheader .perfil{
+
+header .myheader .perfil {
     width: 50px;
     height: 40px;
     /* display: inline-block; */
@@ -141,39 +161,68 @@ header .myheader .perfil{
     float: right;
 }
 
-.component{
+.component {
     background-color: #520BAC;
     width: 28%;
     height: 200px;
     position: relative;
-    margin:auto;
- left: 0;
- right: 0;
- bottom: 0;
- top: 86px;
+    margin: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 86px;
     border-radius: 20px;
 
 }
-.h1{
-        padding-top: 7%;
-                padding-left: 10%;
-            padding-bottom: 8%;
-float: left;
+.tituloevento{
+    color: rgb(218, 218, 218);
+    font-size: 5vh;
+    padding-left: 3%;
+        padding-top: 3%;
+      padding-right: 3%;
+
+}
+
+.data{
+    text-transform: capitalize;
+    padding-top: 1%;
+    padding-left: 3%;
+        padding-bottom: 1%;
+
+    background-color: #7C2FDF;
+    color: #fff;
+
+}
+.eventbody{
+   padding-top: 3%;
+   padding-left: 3%;
+      padding-right: 3%;
+    
+   padding-bottom: 1%;
+   font-size: 10px;
+}
+
+.h1 {
+    padding-top: 7%;
+    padding-left: 10%;
+    padding-bottom: 8%;
+    float: left;
     color: #eee;
     width: 71%;
 }
-.component input{
+
+.component input {
 
     height: 50px;
     width: 83%;
-            margin-left: 8%;
-            /* color: #eee; */
-            border-radius: 18px;
-            border-style: none;
-            background-color: #7C2FDF;
-            font-size: 20px;
-            color: #eee;
-            padding: 10px;
+    margin-left: 8%;
+    /* color: #eee; */
+    border-radius: 18px;
+    border-style: none;
+    background-color: #7C2FDF;
+    font-size: 20px;
+    color: #eee;
+    padding: 10px;
 }
 
 .componentplus {
@@ -182,24 +231,25 @@ float: left;
     height: 5%;
     position: absolute;
     margin: auto;
- left: 0;
- right: 0;
- bottom: 0;
- top: 84px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 84px;
     border-radius: 15px;
     text-align: center;
     color: #eee;
-            padding: 5px;
-            cursor: pointer;
-            font-size: 12px;
+    padding: 5px;
+    cursor: pointer;
+    font-size: 12px;
 
 }
 
-.componentplus :hover{
-background-color: #7C2FDF;
+.componentplus :hover {
+    background-color: #7C2FDF;
     border-radius: 20px;
 
 }
+
 .componentplus2 {
     background-color: #520BAC;
     width: 28%;
@@ -224,11 +274,11 @@ background-color: #7C2FDF;
     border-radius: 20px;
 
 }
-.icon{
+
+.icon {
     float: right;
     font-size: 3.5vw;
-            padding-top: 7%;
-            padding-right: 10%;
-            color: #7C2FDF;
+    padding-top: 7%;
+    padding-right: 10%;
+    color: #7C2FDF;
 }
-

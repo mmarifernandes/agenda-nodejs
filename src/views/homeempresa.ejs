@@ -1,21 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%- include('includes/head') %>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calendário</title>
+  <link rel="stylesheet" href="/css/stylehomeempresa.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <script src="https://kit.fontawesome.com/84a7caccb6.js" crossorigin="anonymous"></script>
+</head>
 <%- include('includes/navbar') %>
 
 
 <body>
     <div class="left">
+      <h1 class="titleemp"><%-empresa.nome%></h1>
+      <br>
+            <a href="/empresa/addtime"><button>Criar time</button></a>
+            <a href="/agendaemp"><button>Ver Agenda</button></a>
+
+      <div class="times">
+      <h1>Times:</h1>
     <% times.forEach(time=> { %>
+      <div class="team">
     <h1><%- time.nome %></h1>
+    </div>
       <% }) %>
+      </div>
+      <div class="times2">
+      <h1>Meus Times:</h1>
+         <% timesm.forEach(timem=> { %>
+          <div class="team">
+    <h1><%- timem.nome %></h1>
+    </div>
+      <% }) %>
+      </div>
     </div>
     <div class="container">
-      <a href="/empresa/addtime">Criar time</a>
     </div>
 
 </body>
-<script src="/js/home.js"></script>
+<script src="/js/agendaemp.js"></script>
 
 </html>

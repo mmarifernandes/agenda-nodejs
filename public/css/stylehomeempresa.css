@@ -9,8 +9,64 @@
 html {
     font-size: 62.5%;
 }
-h1{
+.titleemp{
     color: rgb(218, 218, 218);
+    font-size: 5vh;
+    padding: 3%;
+}
+.times{
+    color: rgb(218, 218, 218);
+    font-size: 1.5vh;
+    padding: 3%;
+}
+
+button{
+    border-radius: 5px;
+    padding: 15px;
+    margin-left: 3%;
+    cursor: pointer;
+    border: none;
+}
+button:hover{
+    background-color: #7C2FDF;
+ box-shadow: 4px 0px rgb(70, 187, 181);
+}
+.times h1{
+    margin-bottom: 5px;
+}
+
+
+.times2 h1 {
+    margin-bottom: 5px;
+}
+.times .team{
+    height: 11vh;
+    width: 100px;
+word-break: break-word;
+border: 1px solid #686874;
+    margin-top: 2px;
+    display:inline-flex;
+    padding: 5px;
+box-shadow: 4px 0px #7C2FDF;
+background-color: #282734;
+}
+.times2 {
+    color: rgb(218, 218, 218);
+    font-size: 1.5vh;
+    padding: 3%;
+}
+
+.times2 .team {
+
+ height: 11vh;
+ width: 100px;
+ word-break: break-word;
+ border: 1px solid #686874;
+ margin-top: 2px;
+ display:inline-flex;
+ padding: 5px;
+ box-shadow: 4px 0px rgb(70, 187, 181);
+ background-color: #282734;
 }
 h2{
     color: rgb(218, 218, 218);
@@ -33,7 +89,7 @@ body{
     background-color: #282734;
     float: left;
     width: 45%;
-        height: 120%;
+        height: 110%;
         position: absolute;
 
 }
@@ -86,17 +142,10 @@ header>h1 {
 .headcalendar .title{
     text-align: center;
     font-size: 25px;
-    padding: 3%;
-    padding-bottom: 1% 
+    padding: 3%
 }
 .headcalendar{
     background-color: #7C2FDF;
-    text-align: center;
-        padding-bottom: 3%;
-
-}
-.headcalendar input{
-    width: 15%;
 }
 .days {
     display: grid;
@@ -122,11 +171,11 @@ a:link, a:visited,  a:hover, a:active
       margin-top: 0.1vh;
 }
 .event:nth-child(odd) {
-    background-color: #2fdfd0;
+    background-color: #7C2FDF;
  
 }
 .event:nth-child(even) {
-    background-color: #7C2FDF;
+    background-color: #2fdfd0;
 
 }
 header .myheader h3{

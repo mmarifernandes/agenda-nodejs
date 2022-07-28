@@ -4,10 +4,11 @@ const {
 
 // postgres://mguhwyxzuehniz:513393b8847a572e661667b54ca6560f9da2239d6d569004b671a0580229af8f@ec2-52-54-212-232.compute-1.amazonaws.com:5432/dfoselo3bnj81h
 class UserTime {
-    constructor(useremail, timeid, tipo) {
+    constructor(useremail, timeid, tipo, data) {
         this.useremail = useremail;
         this.timeid = timeid;
         this.tipo = tipo;
+        this.data = data;
     }
 }
 
@@ -44,8 +45,8 @@ class UserTimeDAO {
 
     static async cadastrar(usertime) {
 
-        const sql = 'INSERT INTO public.usertimes (timeid, useremail, tipo) VALUES ($1, $2, $3);';
-        const values = [usertime.timeid, usertime.useremail, usertime.tipo];
+        const sql = 'INSERT INTO public.usertimes (timeid, useremail, tipo, data) VALUES ($1, $2, $3, $4);';
+        const values = [usertime.timeid, usertime.useremail, usertime.tipo, usertime.data];
 
         try {
             await dbcon.query(sql, values);

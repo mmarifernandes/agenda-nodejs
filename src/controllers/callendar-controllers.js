@@ -17,17 +17,17 @@ class CallendarController {
             titulo: req.body.nome,
             desc: req.body.desc,
             time: req.body.time,
-            data: req.params.num+" "+req.body.hora
+            data: req.params.num+" "+req.body.hora,
         };
         console.log(agendar);
         await AgendaDAO.cadastrar(agendar);
 
 
-        res.redirect('/home');
+        res.redirect('/agendaemp');
     }
 
     async agendarevento(req, res) {  
-        const times = await dbcon.query('SELECT * FROM times');
+        const times = await dbcon.query("SELECT * FROM times join usertimes on usertimes.timeid = times.id where usertimes.useremail = '"+req.session.user.email+"'");
         
     res.render('agenda', {user: req.session.user, times: times.rows, param: req.params.num});
 

@@ -20,7 +20,9 @@ routes.get('/cadastrar', usersController.showcadastrar);
 routes.post('/login', usersController.login);
 
 routes.get('/login', usersController.showlogin);
-routes.get('/home', usersController.home);
+routes.get('/agendaemp', usersController.agendaemp);
+routes.get('/eventoinfo/:id', usersController.eventoinfo);
+
 routes.get('/empresas', usersController.empresas);
 
 module.exports = routes;

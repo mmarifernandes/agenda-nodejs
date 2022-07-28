@@ -42,21 +42,34 @@ class UsersController {
         res.render('login');
     }
 
-    async home(req, res) {
+    async agendaemp(req, res) {
         const year = req.query.year || new Date().getFullYear()
         const month = req.query.month || new Date().getMonth()
-        const agenda = await dbcon.query('SELECT * FROM agendas');
-
+        const agenda = await dbcon.query("SELECT *, agendas.id as agendaid FROM agendas join times on agendas.time = times.id join empresatimes on times.id = empresatimes.timeid join userempresas on empresatimes.empresaid = userempresas.empresaid where userempresas.useremail = '"+req.session.user.email+"'");
+        console.log(agenda);
         const months = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho",
             "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
-        res.render("home", { calendar: calendar(year), months, year, month, user: req.session.user, evento: agenda.rows });
+        res.render("agendaemp", { calendar: calendar(year), months, year, month, user: req.session.user, evento: agenda.rows });
+    }
+
+
+        async eventoinfo(req, res) {
+        const year = req.query.year || new Date().getFullYear()
+        const month = req.query.month || new Date().getMonth()
+        const info = await dbcon.query("SELECT times.nome as timenome, agendas.desc as eventodesc, times.desc as timedesc, agendas.id as id, * FROM agendas join times on times.id = agendas.time where agendas.id = '"+req.params.id+"'");
+        const agenda = await dbcon.query("SELECT *, agendas.id as agendaid FROM agendas join times on agendas.time = times.id join empresatimes on times.id = empresatimes.timeid join userempresas on empresatimes.empresaid = userempresas.empresaid where userempresas.useremail = '" + req.session.user.email + "'");
+        console.log("Teste")
+        console.log(info.rows);
+        const months = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho",
+            "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+        res.render("eventoinfo", { calendar: calendar(year), months, year, month, user: req.session.user, evento: agenda.rows, info: info.rows[0] });
     }
 
     async showcadastrar(req, res) {
         res.render('cadastro');
     }
     async empresas(req, res) {
-        const empresas = await dbcon.query('SELECT * FROM empresas')  || "";
+        const empresas = await dbcon.query('SELECT * FROM empresas');
         console.log(empresas)
         res.render('empresas', { user: req.session.user, empresas: empresas.rows });
     }
