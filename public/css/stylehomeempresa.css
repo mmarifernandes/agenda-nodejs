@@ -11,7 +11,7 @@ html {
 }
 .titleemp{
     color: rgb(218, 218, 218);
-    font-size: 5vh;
+    font-size: 5.5vh;
     padding: 3%;
 }
 .times{
@@ -29,7 +29,7 @@ button{
 }
 button:hover{
     background-color: #7C2FDF;
- box-shadow: 4px 0px rgb(70, 187, 181);
+ box-shadow: 4px 0px #17bcc2
 }
 .times h1{
     margin-bottom: 5px;
@@ -65,7 +65,7 @@ background-color: #282734;
  margin-top: 2px;
  display:inline-flex;
  padding: 5px;
- box-shadow: 4px 0px rgb(70, 187, 181);
+ box-shadow: 4px 0px #17bcc2;
  background-color: #282734;
 }
 h2{
@@ -171,11 +171,11 @@ a:link, a:visited,  a:hover, a:active
       margin-top: 0.1vh;
 }
 .event:nth-child(odd) {
-    background-color: #7C2FDF;
- 
+     background-color: #17bcc2
+
 }
 .event:nth-child(even) {
-    background-color: #2fdfd0;
+    background-color: #7C2FDF;
 
 }
 header .myheader h3{
@@ -281,3 +281,7 @@ background-color: #7C2FDF;
             color: #7C2FDF;
 }
 
+.team:hover{
+background-color: #955ad857;
+cursor: pointer;
+}

@@ -90,7 +90,7 @@ header>h1 {
     padding-bottom: 1% 
 }
 .headcalendar{
-    background-color: #7C2FDF;
+    background-color: #17bcc2;
     text-align: center;
         padding-bottom: 3%;
 
@@ -122,11 +122,11 @@ a:link, a:visited,  a:hover, a:active
       margin-top: 0.1vh;
 }
 .event:nth-child(odd) {
-    background-color: #2fdfd0;
- 
+     background-color: #7C2FDF;
+
 }
 .event:nth-child(even) {
-    background-color: #7C2FDF;
+    background-color: #17bcc2;
 
 }
 header .myheader h3{
@@ -232,3 +232,15 @@ background-color: #7C2FDF;
             color: #7C2FDF;
 }
 
+.empresas select{
+    height: 50px;
+    width: 83%;
+    margin-left: 8%;
+    /* color: #eee; */
+    border-radius: 18px;
+    border-style: none;
+    background-color: #7C2FDF;
+    font-size: 20px;
+    color: #eee;
+    padding: 10px;
+}

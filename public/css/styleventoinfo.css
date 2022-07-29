@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&family=Poppins&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap');
 * {
     margin: 0;
     padding: 0;
@@ -99,7 +99,7 @@ header>h1 {
 }
 
 .headcalendar {
-    background-color: #7C2FDF;
+    background-color: #17bcc2;
     text-align: center;
     padding-bottom: 3%;
 
@@ -139,12 +139,12 @@ a:active {
 }
 
 .event:nth-child(odd) {
-    background-color: #2fdfd0;
-
+    
+    background-color: #7C2FDF;
 }
 
 .event:nth-child(even) {
-    background-color: #7C2FDF;
+    background-color: #2fdfd0;
 
 }
 
@@ -201,7 +201,10 @@ header .myheader .perfil {
    padding-bottom: 1%;
    font-size: 10px;
 }
-
+.eventbody h1{
+    
+    font-weight: 300 !important;
+}
 .h1 {
     padding-top: 7%;
     padding-left: 10%;

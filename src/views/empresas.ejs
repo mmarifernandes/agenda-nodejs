@@ -10,15 +10,14 @@
         <h1>Você faz parte de alguma empresa? </h1>
         </div>
         <div class="icon"><i class="fa-solid fa-briefcase"></i></div>
-        <form action="/empresa/empresauser" method="post">
-        <input type="text" list="empresas" name="empresaid" />
-        <datalist id="empresas">
-        <% empresas.forEach(empresa=> { %>
+        <form action="/empresa/empresauser" id="form" method="post">
+            <select class="empresas" name="empresaid" id="empresaid">
+                
+                <% empresas.forEach(empresa=> { %>
+                <option value="<%-empresa.id%>"><%- empresa.nome %></option>
+                <% }) %>
+            </select>
 
-            <option value="<%-empresa.id%>"><%- empresa.nome %></option>
-    <% }) %>
-        </datalist>
-        <button type="submit">Enviar</button>
     </form>
     </div>
     <a href="/empresa/addempresa">
@@ -26,7 +25,7 @@
             <h2>Adicionar empresa</h2>
         </button>
         </a>
-        <button class="componentplus2">
+        <button form="form" class="componentplus2">
             <h2>Continuar</h2>
         </button>
         </div>
