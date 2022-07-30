@@ -177,16 +177,18 @@ header .myheader .perfil {
 .tituloevento{
     color: rgb(218, 218, 218);
     font-size: 5vh;
-    padding-left: 3%;
+    padding-left: 5%;
         padding-top: 3%;
-      padding-right: 3%;
+      padding-right: 5%;
 
 }
 
 .data{
     text-transform: capitalize;
     padding-top: 1%;
-    padding-left: 3%;
+    padding-left: 5%;
+        padding-right: 5%;
+
         padding-bottom: 1%;
 
     background-color: #7C2FDF;
@@ -195,8 +197,8 @@ header .myheader .perfil {
 }
 .eventbody{
    padding-top: 3%;
-   padding-left: 3%;
-      padding-right: 3%;
+   padding-left: 5%;
+      padding-right: 5%;
     
    padding-bottom: 1%;
    font-size: 10px;

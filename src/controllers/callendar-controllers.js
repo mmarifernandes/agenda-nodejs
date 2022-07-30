@@ -9,8 +9,7 @@ const { dbcon } = require("../config/connection-db");
 class CallendarController {
 
     async addevento(req, res) {
-        const { params } = req.params.num
-        console.log(req.params.num);
+        const { data } = req.params.num +" "+ req.body.hora;
         // const {data} = (req.params.num).toString().replace("-","/")
         // console.log(data)
         const agendar = {
@@ -19,18 +18,36 @@ class CallendarController {
             time: req.body.time,
             data: req.params.num+" "+req.body.hora,
         };
-        console.log(agendar);
-        await AgendaDAO.cadastrar(agendar);
+        const agenda = await dbcon.query("SELECT *, agendas.id as agendaid FROM agendas join times on agendas.time = times.id join empresatimes on times.id = empresatimes.timeid join userempresas on empresatimes.empresaid = userempresas.empresaid where userempresas.useremail = '" + req.session.user.email + "'");
+        let i = 0;
+        while (i < agenda.rows.length) {
+            console.log(new Date(req.params.num + " " + req.body.hora), new Date(agenda.rows[i].data));
+            if (+new Date(req.params.num + " " + req.body.hora) === +new Date(agenda.rows[i].data) && req.body.time === agenda.rows[i].time) {
+                res.send('Já tem um evento agendado para este time as '+req.body.hora+' horas')
+                break
+            }else{
+                i++;
+            }
+            if (i === agenda.rows.length){
+                await AgendaDAO.cadastrar(agendar);
+                res.redirect('/agendaemp');
+                break;
 
-
-        res.redirect('/agendaemp');
+            }
+        }
+        
+    
     }
 
     async agendarevento(req, res) {  
         const times = await dbcon.query("SELECT * FROM times join usertimes on usertimes.timeid = times.id where usertimes.useremail = '"+req.session.user.email+"'");
-        
+        console.log('aaaaaaaaAAAAAAAAAAAAAAAAAAAAAA')
+        console.log(new Date(req.params.num))
+        if (new Date(req.params.num).getDay() === 0 || new Date(req.params.num).getDay() === 6) {
+            res.send("Você não pode agendar eventos no final de semana.")
+        } else {
     res.render('agenda', {user: req.session.user, times: times.rows, param: req.params.num});
-
+        }
     }
 
 }

@@ -25,23 +25,49 @@
       <div class="times">
       <h1>Times:</h1>
     <% times.forEach(time=> { %>
+    <a href="/empresa/timeinfo/<%-time.id%>">
       <div class="team">
-    <h1><%- time.nome %></h1>
-    </div>
+        <h1>
+          <%- time.nome %>
+        </h1>
+      </div>
+    </a>
       <% }) %>
       </div>
       <div class="times2">
       <h1>Meus Times:</h1>
          <% timesm.forEach(timem=> { %>
+          <a href="/empresa/timeinfo/<%-timem.id%>">
           <div class="team">
     <h1><%- timem.nome %></h1>
     </div>
+    </a>
       <% }) %>
       </div>
     </div>
     <div class="container">
-
-      <h1>Planner</h1>
+      <% if(pendente.length > 0 ){%>
+<div style="margin-top: 5%;">
+        <h1>Solicitações</h1>
+        <br>
+        <h2>Você foi convidado para o time:</h2>
+        <br>
+        <table>
+          <% pendente.forEach(time=> { %>
+            <tr>
+              <td><%-time.nome%></td>
+              <td>
+                <a href="/empresa/aprova/<%= time.id %>">Aceitar</a>
+              </td>
+              <td>
+                <a href="/empresa/reprova/<%= time.id %>">Rejeitar</a>
+              </td>
+              
+            </tr>
+            <% }) %>
+          </table>
+        <%}%>
+        </div>
     </div>
 
 </body>

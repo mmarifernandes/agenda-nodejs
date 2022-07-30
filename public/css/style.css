@@ -232,7 +232,7 @@ background-color: #7C2FDF;
             color: #7C2FDF;
 }
 
-.empresas select{
+.empresas{
     height: 50px;
     width: 83%;
     margin-left: 8%;

@@ -23,14 +23,11 @@ class UserTimeDAO {
         return usertime;
     }
 
-    static async atualiza(usertime) {
+    static async aprova(usertime) {
         const sql = `UPDATE usertimes
-            SET nome = $2, 
-                sinopse = $3,
-                genero = $4,
-                data_lancamento = $5
-            WHERE id = $1;`;
-        const values = [usertime.id, usertime.nome];
+            SET tipo = $2 
+            WHERE timeid = $1 and useremail = $3;`;
+        const values = [usertime.timeid, usertime.tipo, usertime.useremail];
 
         try {
             await dbcon.query(sql, values);
@@ -42,6 +39,22 @@ class UserTimeDAO {
             return false;
         }
     }
+
+       static async reprova(usertime) {
+           const sql = `DELETE FROM usertimes
+            WHERE timeid = $1 and useremail = $2;`;
+           const values = [usertime.timeid, usertime.useremail];
+
+           try {
+               await dbcon.query(sql, values);
+               return true;
+           } catch (error) {
+               console.log({
+                   error
+               });
+               return false;
+           }
+       }
 
     static async cadastrar(usertime) {
 

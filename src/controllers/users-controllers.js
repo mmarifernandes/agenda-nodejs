@@ -38,6 +38,11 @@ class UsersController {
     //     res.redirect('/users/listagem');
     // }
 
+ async logout(req, res) {
+  req.session.destroy();
+  res.redirect('/');
+  }
+
     async showlogin(req, res) {
         res.render('login');
     }

@@ -15,6 +15,10 @@ routes.post('/empresauser', empresasController.empresauser);
 routes.get('/homeempresa', empresasController.homeempresa);
 routes.get('/addtime', empresasController.addtime);
 routes.post('/cadastrotime', empresasController.cadastrartime);
+routes.get('/timeinfo/:id', empresasController.timeinfo);
+routes.post('/convidartime/:id', empresasController.convidartime);
+routes.get('/aprova/:id', empresasController.aprova);
+routes.get('/reprova/:id', empresasController.reprova);
 
 
 

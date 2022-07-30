@@ -24,5 +24,6 @@ routes.get('/agendaemp', usersController.agendaemp);
 routes.get('/eventoinfo/:id', usersController.eventoinfo);
 
 routes.get('/empresas', usersController.empresas);
+routes.get('/logout', usersController.logout);
 
 module.exports = routes;

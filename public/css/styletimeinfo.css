@@ -67,7 +67,7 @@ background-color: #282734;
  padding: 5px;
  box-shadow: 4px 0px #17bcc2;
  background-color: #282734;
- }
+}
 h2{
     color: rgb(218, 218, 218);
 }
@@ -93,29 +93,12 @@ body{
         position: absolute;
 
 }
-.container {
-    width: 55%;
-    height: 110%;
-    float: right;
-    color: #eee;
-    /* display: inline-block; */
 
-    text-align: center;
+
+.titletime{
+    margin: 2%;
+    font-size: 5vh;
 }
-table{
-    text-align: center;
-    margin: 0 auto;
- border: 1px solid #686874;
-font-size: 15px;
-/* padding: 2%; */
-
-}
-td{
-padding: 10px;     
-border: 1px solid #686874;
-
-}
-
 header {
     text-align: center;
 }
@@ -203,19 +186,7 @@ header .myheader .perfil{
     float: right;
 }
 
-.component{
-    background-color: #520BAC;
-    width: 28%;
-    height: 200px;
-    position: relative;
-    margin:auto;
- left: 0;
- right: 0;
- bottom: 0;
- top: 86px;
-    border-radius: 20px;
 
-}
 .h1{
         padding-top: 7%;
                 padding-left: 10%;
@@ -224,68 +195,9 @@ float: left;
     color: #eee;
     width: 71%;
 }
-.component input{
 
-    height: 50px;
-    width: 83%;
-            margin-left: 8%;
-            /* color: #eee; */
-            border-radius: 18px;
-            border-style: none;
-            background-color: #7C2FDF;
-            font-size: 20px;
-            color: #eee;
-            padding: 10px;
-}
 
-.componentplus {
-    background-color: #520BAC;
-    width: 28%;
-    height: 5%;
-    position: absolute;
-    margin: auto;
- left: 0;
- right: 0;
- bottom: 0;
- top: 84px;
-    border-radius: 15px;
-    text-align: center;
-    color: #eee;
-            padding: 5px;
-            cursor: pointer;
-            font-size: 12px;
 
-}
-
-.componentplus :hover{
-background-color: #7C2FDF;
-    border-radius: 20px;
-
-}
-.componentplus2 {
-    background-color: #520BAC;
-    width: 28%;
-    height: 5%;
-    position: absolute;
-    margin: auto;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    top: 0;
-    border-radius: 15px;
-    text-align: center;
-    color: #eee;
-    padding: 5px;
-    cursor: pointer;
-    font-size: 12px;
-
-}
-
-.componentplus2 :hover {
-    background-color: #8F3DF6;
-    border-radius: 20px;
-
-}
 .icon{
     float: right;
     font-size: 3.5vw;
@@ -297,4 +209,69 @@ background-color: #7C2FDF;
 .team:hover{
 background-color: #955ad857;
 cursor: pointer;
+}
+
+.component1 select{
+     height: 50px;
+     width: 80%;
+     margin-right: 10%;
+     margin-bottom: 3%;
+float: right;     border-radius: 18px;
+     border-style: none;
+     background-color: #7C2FDF;
+     font-size: 20px;
+     color: #eee;
+}
+
+.button2 {
+    border-radius: 5px;
+    padding: 15px;
+    cursor: pointer;
+    border: none;
+    margin: 0 auto;
+}
+
+.button2:hover {
+    background-color: #7C2FDF;
+    box-shadow: 4px 0px #17bcc2
+}
+
+.titletime {
+    font-size: 4vh;
+    text-align: center;
+    padding: 5%;
+    color: rgb(218, 218, 218);
+}
+
+label {
+    font-size: 3vh;
+    padding-left: 5%;
+    color: rgb(218, 218, 218);
+    text-align: center;
+}
+
+
+.component1 {
+    text-align: left;
+    display: inline-block;
+}
+
+.component1 {
+    background-color: #520BAC;
+    width: 30%;
+    height: 400px;
+    position: relative;
+    float: right;
+    margin: auto;
+    left: -180px;
+    right: 0;
+    bottom: 0;
+    top: 86px;
+    border-radius: 20px;
+
+}
+
+p{
+    color: rgb(218, 218, 218);
+    font-size: 12px;
 }

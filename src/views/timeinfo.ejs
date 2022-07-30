@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calendário</title>
+  <link rel="stylesheet" href="/css/styletimeinfo.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <script src="https://kit.fontawesome.com/84a7caccb6.js" crossorigin="anonymous"></script>
+</head>
+<%- include('includes/navbar') %>
+
+
+<body>
+    <div class="left">
+      <h1 class="titleemp">Empresa <%-empresa.nome%></h1>
+      <br>
+            <a href="/empresa/addtime"><button>Criar time</button></a>
+            <a href="/agendaemp"><button>Ver Agenda</button></a>
+
+      <div class="times">
+      <h1>Times:</h1>
+    <% times.forEach(time=> { %>
+      <a href="/empresa/timeinfo/<%-time.id%>">
+      <div class="team">
+    <h1><%- time.nome %></h1>
+    </div>
+      </a>
+      <% }) %>
+      </div>
+      <div class="times2">
+      <h1>Meus Times:</h1>
+         <% timesm.forEach(timem=> { %>
+          <a href="/empresa/timeinfo/<%-timem.id%>">
+            <div class="team">
+              <h1>
+                <%- timem.nome %>
+              </h1>
+            </div>
+          </a>
+      <% }) %>
+      </div>
+    </div>
+    <div class="component1">
+<div>
+  <h1 class="titletime">Time <%- timeinfo.nome %></h1>
+  <div style="margin-left: 10%; float: left;">
+      <h2 style="font-size: 20px;">Descrição: <%-timeinfo.desc%></h2>
+<br>
+      <h2>Usuários:</h2>
+              <% users.forEach(user=> { %>
+                <p><%- user.nomeu%></p>
+                
+                <% }) %>
+              </div>
+<div style="float: right; margin-right: 10%; margin-top: 25%;">
+        <% if(user.email === timeadm.useremail){ %>
+          <form action="/empresa/convidartime/<%-param%>" method="post">
+            <label for="userstime"></label>
+            <select name="userstime" id="">
+                <% usersemp.forEach(user=> { %>
+              <option value="<%-user.email%>"><%-user.nome%></option>
+              <% }) %>
+            </select>
+            <br>
+            <br>
+            <button class="button2" type="submit">Convidar para o time</button>
+          </form>
+        <%}%>
+        </div>
+    </div>
+
+</body>
+<script src="/js/agendaemp.js"></script>
+
+</html>
