@@ -2,31 +2,32 @@
 <html lang="en">
 <%- include('includes/head') %>
     <%- include('includes/navbar') %>
-    <link rel="stylesheet" href="/css/styleaddtime.css" />
+        <link rel="stylesheet" href="/css/styleaddtime.css" />
 
-<body>
-    <div class="body">
-    <div class="component1">
-        <h1 class="title">Criar time <i class="fa-solid fa-user-group"></i></h1>
-        <form action="/empresa/cadastrotime" method="post">
-            <label for="nome">Nome</label>
-            <br>
-            <br>
-            <input type="text" name="nome">
-            <br>
-            <br>
-            <br>
-              <label for="desc">Descrição</label>
-              <br>
-              <br>
-           <textarea name="desc" id="" cols="30" rows="10"></textarea>
-           <br>
-            <button type="submit">Cadastrar</button>
-        </form>
-    </div>
-        <!-- <button class="componentplus2">
+        <body>
+            <div class="body">
+                <div class="component1">
+                    <h1 class="title">Criar time <i class="fa-solid fa-user-group"></i></h1>
+                    <form action="/empresa/cadastrotime" method="post">
+                        <label for="nome">Nome</label>
+                        <br>
+                        <br>
+                        <input type="text" name="nome">
+                        <br>
+                        <br>
+                        <br>
+                        <label for="desc">Descrição</label>
+                        <br>
+                        <br>
+                        <textarea name="desc" id="" cols="30" rows="10"></textarea>
+                        <br>
+                        <button type="submit">Cadastrar</button>
+                    </form>
+                </div>
+                <!-- <button class="componentplus2">
             <h2>Adicionar empresa</h2>
         </button> -->
-        </div>
-</body>
+            </div>
+        </body>
+
 </html>

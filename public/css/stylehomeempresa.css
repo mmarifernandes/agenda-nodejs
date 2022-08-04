@@ -29,7 +29,7 @@ button{
 }
 button:hover{
     background-color: #7C2FDF;
- box-shadow: 4px 0px #17bcc2
+ box-shadow: 4px 0px #518ee9
 }
 .times h1{
     margin-bottom: 5px;
@@ -65,7 +65,7 @@ background-color: #282734;
  margin-top: 2px;
  display:inline-flex;
  padding: 5px;
- box-shadow: 4px 0px #17bcc2;
+ box-shadow: 4px 0px #518ee9;
  background-color: #282734;
  }
 h2{
@@ -184,7 +184,7 @@ a:link, a:visited,  a:hover, a:active
       margin-top: 0.1vh;
 }
 .event:nth-child(odd) {
-     background-color: #17bcc2
+     background-color: #518ee9
 
 }
 .event:nth-child(even) {

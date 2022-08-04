@@ -1,55 +1,56 @@
 function calcTable(year) {
-    let arr = new Array(12);
-    for (let x = 0; x < arr.length; x++) {
-        arr[x] = new Array(6);
-
+    let arr = new Array(12); //array dos meses do ano
+    for (let coluna = 0; coluna < arr.length; coluna++) {
+        arr[coluna] = new Array(6); //coluna semanas calendario
     }
-
-    for (let x = 0; x < arr.length; x++) {
-        for (let y = 0; y < arr[x].length; y++) {
-            arr[x][y] = new Array(7);
+    for (let coluna = 0; coluna < arr.length; coluna++) {
+        // console.log(arr[coluna].length)
+        for (let dia = 0; dia < arr[coluna].length; dia++) {
+            arr[coluna][dia] = new Array(7); //dias dentro das semanas
+            // console.log(arr)
         }
     }
-
+    
+    // console.log(arr.length)
+    // console.log(arr[6].length)
     for (let month = 0; month < arr.length; month++) {
-
         let startDayInWeek = new Date(year, month, 0).getDay() + 1;
-      
+    //   console.log('dia semana '+startDayInWeek)
 
         let monthLong = new Date(year, month + 1,0).getDate() + 1;
+// console.log(monthLong)
 
-
-console.log(monthLong)
 
 
         let beforCount = 0;
         let counter = 1;
         let startCount = false;
 
-
-        for (let x = 0; x < arr[month].length; x++) {
-            for (let y = 0; y < arr[month][x].length; y++) {
-
-
-
+// coluna = coluna
+//dia = dia da coluna
+        for (let coluna = 0; coluna < arr[month].length; coluna++) { 
+            for (let dia = 0; dia < arr[month][coluna].length; dia++) {
+                // console.log(arr[6][1].length)
+                
                 if (beforCount == startDayInWeek) {
                     startCount = true;
                 } else {
                     beforCount++;
                 }
-
-
+                
+                
                 if (startCount == true) {
-
-                    arr[month][x][y] = counter;
+                    
+                    arr[month][coluna][dia] = counter;
+                    // console.log(arr[month][coluna][dia])
                     counter++;
 
                 } else {
-                    arr[month][x][y] = "";
+                    arr[month][coluna][dia] = "";
                 }
 
                 if (counter > monthLong) {
-                    arr[month][x][y] = "";
+                    arr[month][coluna][dia] = "";
 
                 }
 
@@ -60,7 +61,7 @@ console.log(monthLong)
 
         }
     }
-
+    // console.log(arr)
     return arr;
 }
 

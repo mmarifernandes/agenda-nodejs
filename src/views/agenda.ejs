@@ -3,44 +3,48 @@
 <%- include('includes/head') %>
     <%- include('includes/navbar') %>
         <link rel="stylesheet" href="/css/atyleaddagenda.css" />
-<% let options={ weekday: 'long' , year: 'numeric' , month: 'long' , day: 'numeric' }%>
-        <% let date2=new Date(param)%>
+        <% let options={ weekday: 'long' , year: 'numeric' , month: 'long' , day: 'numeric' }%>
+            <% let date2=new Date(param)%>
 
-<%date2=date2.toLocaleDateString('pt-BR', options)%>
+                <%date2=date2.toLocaleDateString('pt-BR', options)%>
 
 
-<body>
+                    <body>
 
-    <div class="component1">
-        <h1 class="title"><%-date2%></h1>
-        <form action="/agenda/addevento/<%-param%>" method="post">
-        <label for="nome">Nome do evento</label>
-        <br>
-        <br>
-        <input type="text" name="nome" id="">
-        <br><br>
-        <label for="desc">Descrição</label>
-        <br>
-        <br>
-        <textarea name="desc" id="" cols="30" rows="10"></textarea>
-        <div class="both">
-        <label for="hora">Horário</label>
-        <label class="labeltime" for="time">Time</label>
-        <br>
-        <br>
-        <input type="time" name="hora"  min="08:00" max="16:00" required>
-        
-        <select name="time" id="">
-                <% times.forEach(time=> { %>
-            <option value="<%-time.id%>"><%-time.nome%></option>
-                <% }) %>
-        </select>
-        </div>
-        <br>
-       <button type="submit">Agendar</button>
-        </form>
-    </div>
-    
-</body>
+                        <div class="component1">
+                            <h1 class="title">
+                                <%-date2%>
+                            </h1>
+                            <form action="/agenda/addevento/<%-param%>" method="post">
+                                <label for="nome">Nome do evento</label>
+                                <br>
+                                <br>
+                                <input type="text" name="nome" id="">
+                                <br><br>
+                                <label for="desc">Descrição</label>
+                                <br>
+                                <br>
+                                <textarea name="desc" id="" cols="30" rows="10"></textarea>
+                                <div class="both">
+                                    <label for="hora">Horário</label>
+                                    <label class="labeltime" for="time">Time</label>
+                                    <br>
+                                    <br>
+                                    <input type="time" name="hora" min="08:00" max="16:00" required>
+
+                                    <select name="time" id="">
+                                        <% times.forEach(time=> { %>
+                                            <option value="<%-time.id%>">
+                                                <%-time.nome%>
+                                            </option>
+                                            <% }) %>
+                                    </select>
+                                </div>
+                                <br>
+                                <button type="submit">Agendar</button>
+                            </form>
+                        </div>
+
+                    </body>
 
 </html>

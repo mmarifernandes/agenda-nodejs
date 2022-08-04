@@ -13,92 +13,104 @@
   <script src="https://kit.fontawesome.com/84a7caccb6.js" crossorigin="anonymous"></script>
 </head>
 <%- include('includes/navbar') %>
-<% let date1 = []%>
-<% let datef=[]%>
-<% let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }%>
-<% let options2 = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' }%>
+  <% let date1=[]%>
+    <% let datef=[]%>
+      <% let options={ weekday: 'long' , year: 'numeric' , month: 'long' , day: 'numeric' }%>
+        <% let options2={ weekday: 'long' , year: 'numeric' , month: 'long' , day: 'numeric' , hour: 'numeric' ,
+          minute: 'numeric' }%>
 
-<% evento.forEach(event=> { %>
-<% date1.push(new Date(event.data.toString()))%>
-<% }) %>
-<% for(let  i = 0; i<date1.length; i++){%>
+          <% evento.forEach(event=> { %>
+            <% date1.push(new Date(event.data.toString()))%>
+              <% }) %>
+                <% for(let i=0; i<date1.length; i++){%>
 
-<%datef.push(date1[i].toLocaleDateString('pt-BR', options))%>
-<%}%>
-    <body>  
-    <div class="left">
- 
-<div style=" word-break: break-word; display: inline-block; width: 100%;">
-<div>
-<h1 class="tituloevento">Evento <%- info.titulo %></h1>
-</div>
-<div>
-<h1 class="data"><%- info.data.toLocaleDateString('pt-BR', options2)%> Horas</h1>
-</div>
-</div>
-<div class="eventbody">
-  <h1>Descrição: <p style="font-size: 18px;"><%- info.eventodesc %></p></h1>
-  <br>
-  <h1><strong>~ Time: <%- info.timenome %> ~</strong></h1>
-</div>
+                  <%datef.push(date1[i].toLocaleDateString('pt-BR', options))%>
+                    <%}%>
 
-</div>
-<div class="container">
+                      <body>
+                        <div class="left">
 
-  <div class="calendar-container">
-    <div class="month-container" id="<%= months[month] %>">
-      <div class="headcalendar">
-        <h3 class="title"> <%= months[month] %> - <%= year %> </h3>
+                          <div style=" word-break: break-word; display: inline-block; width: 100%;">
+                            <div>
+                              <h1 class="tituloevento">Evento <%- info.titulo %>
+                              </h1>
+                            </div>
+                            <div>
+                              <h1 class="data">
+                                <%- info.data.toLocaleDateString('pt-BR', options2)%> Horas
+                              </h1>
+                            </div>
+                          </div>
+                          <div class="eventbody">
+                            <h1>Descrição: <p style="font-size: 18px;">
+                                <%- info.eventodesc %>
+                              </p>
+                            </h1>
+                            <br>
+                            <h1><strong>~ Time: <%- info.timenome %> ~</strong></h1>
+                          </div>
 
-      <form action="/agendaemp" method="get">
-        <input type="text" placeholder="Digite o ano" name="year">
-      
-        <select name="month" id="month">
-          <% for(let i=0; i <12;i++ ) { %>
-      
-            <option value="<%-i%>">
-              <%- months[i] %>
-            </option>
-            <% } %>
-        </select>
-        <button type="submit">search</button>
-      </form>
+                        </div>
+                        <div class="container">
 
-      </div>
-      <div class="day-of-week">
-        <span>Dom</span><span>Seg</span><span>Ter</span><span>
-          Qua</span><span>Qui</span><span>Sex</span><span>Sáb</span>
-      </div>
-      <% for(let x = 0;x < calendar[month].length;x++) { %>
-      <div class="days">
-        <% for(let y = 0;y < calendar[month][x].length;y++) { %>
-        <div class="date">
+                          <div class="calendar-container">
+                            <div class="month-container" id="<%= months[month] %>">
+                              <div class="headcalendar">
+                                <h3 class="title">
+                                  <%= months[month] %> - <%= year %>
+                                </h3>
+
+                                <form action="/agendaemp" method="get">
+                                  <input type="text" placeholder="Digite o ano" name="year">
+
+                                  <select name="month" id="month">
+                                    <% for(let i=0; i <12;i++ ) { %>
+
+                                      <option value="<%-i%>">
+                                        <%- months[i] %>
+                                      </option>
+                                      <% } %>
+                                  </select>
+                                  <button type="submit">search</button>
+                                </form>
+
+                              </div>
+                              <div class="day-of-week">
+                                <span>Dom</span><span>Seg</span><span>Ter</span><span>
+                                  Qua</span><span>Qui</span><span>Sex</span><span>Sáb</span>
+                              </div>
+                              <% for(let coluna=0;coluna < calendar[month].length;coluna++) { %>
+                                <div class="days">
+                                  <% for(let dia=0;dia < calendar[month][coluna].length;dia++) { %>
+                                    <div class="date">
 
 
-          <a href="/agenda/<%= parseInt(month)+1 +'-'+calendar[month][x][y]+'-'+ year%>">
-            <div id="<%= parseInt(month)+1 +'-'+calendar[month][x][y]+'-'+ year%>">
-              <%= calendar[month][x][y] %>
-            </div>
-          </a>
+                                      <a
+                                        href="/agenda/<%= parseInt(month)+1 +'-'+calendar[month][coluna][dia]+'-'+ year%>">
+                                        <div id="<%= parseInt(month)+1 +'-'+calendar[month][coluna][dia]+'-'+ year%>">
+                                          <%= calendar[month][coluna][dia] %>
+                                        </div>
+                                      </a>
 
-          <% let date2=new Date(parseInt(month)+1 +'-'+calendar[month][x][y]+'-'+ year)%>
-          <%date2=date2.toLocaleDateString('pt-BR', options)%>
-          <% for(let x = 0; x<datef.length;x++){%>
+                                      <% let date2=new Date(parseInt(month)+1 +'-'+calendar[month][coluna][dia]+'-'+
+                                        year)%>
+                                        <%date2=date2.toLocaleDateString('pt-BR', options)%>
+                                          <% for(let x=0; x<datef.length;x++){%>
 
-          <%if(datef[x] === date2 ){%>
-    <a href="/eventoinfo/<%=evento[x].agendaid%>">
-      <div class="event"></div>
-    </a>
-          <%}%>
-            
-        <%}%>
-        </div>
-        <% } %>
-      </div>
-      <% } %>
-    </div>
-  </div>
-</div>
-</body>
+                                            <%if(datef[x]===date2 ){%>
+                                              <a href="/eventoinfo/<%=evento[x].agendaid%>">
+                                                <div class="event"></div>
+                                              </a>
+                                              <%}%>
+
+                                                <%}%>
+                                    </div>
+                                    <% } %>
+                                </div>
+                                <% } %>
+                            </div>
+                          </div>
+                        </div>
+                      </body>
 
 </html>

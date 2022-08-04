@@ -90,7 +90,7 @@ header>h1 {
     padding-bottom: 1% 
 }
 .headcalendar{
-    background-color: #17bcc2;
+    background-color: #518ee9;
     text-align: center;
         padding-bottom: 3%;
 
@@ -126,7 +126,7 @@ a:link, a:visited,  a:hover, a:active
 
 }
 .event:nth-child(even) {
-    background-color: #17bcc2;
+    background-color: #518ee9;
 
 }
 header .myheader h3{
@@ -243,4 +243,5 @@ background-color: #7C2FDF;
     font-size: 20px;
     color: #eee;
     padding: 10px;
+    
 }

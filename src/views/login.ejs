@@ -1,27 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%- include('includes/head') %>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calendário</title>
+    <link rel="stylesheet" href="/css/stylelogin.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+
+    <script src="https://kit.fontawesome.com/84a7caccb6.js" crossorigin="anonymous"></script>
+</head>
 
     <body>
 
         <center>
-            <h1 style="margin-bottom: 20px;">Login</h1>
+            <div class="login">
+            <h1 style="margin-bottom: 20px; font-size: 7vh;">Login</h1>
 
             <form action="/login" method="post">
-                <label for="nome">Email</label>
-                <br>
-                <input type="email" name="email" required>
-                <br /><br />
-                <label for="nome">Senha</label>
-                <br>
-                <input type="password" name="senha" required>
+   
+                
+                <input type="email" name="email" placeholder="Email" required>
+
+                <input type="password" name="senha" placeholder="Senha" required>
                 <br /><br />
 
-                <input type="submit" value="Entrar ... " />
-                <h6>Não tem conta? <a href="/cadastrar">Cadastre-se</a></h6>
+                <button type="submit" class="btn btn-primary btn-block btn-large" >Entrar ... </button>
+                <br><br>
+                <h1 style="font-size: 10px;">Não tem conta? <a href="/cadastrar">Cadastre-se</a></h1>
                 <br />
             </form>
+            </div>
         </center>
 
 </html>
